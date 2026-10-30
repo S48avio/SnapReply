@@ -1,0 +1,15 @@
+[project]
+name = "smart-reply"
+version = "0.1.0"
+description = "Gmail-style Smart Reply: a from-scratch dual encoder (Henderson et al. 2017)"
+requires-python = ">=3.12"
+dependencies = ["torch>=2.5"]
+
+# CPU-only PyTorch (~200 MB) instead of the default CUDA build (2 GB+): no GPU here.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
